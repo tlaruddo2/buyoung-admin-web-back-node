@@ -1,11 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
+
 import 'dotenv/config';
 import MonthlyCondition from './models/monthlyCondition';
 
 const app = express();
 app.use(express.json());
-const port = 8000;
+app.use(cors());
+
+const port = process.env.PORT || 4000;
 
 app.get("/", (req, res) => {
     res.send('Hello World');
